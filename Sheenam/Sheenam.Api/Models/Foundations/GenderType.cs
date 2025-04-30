@@ -10,6 +10,8 @@ namespace Sheenam.Api.Models.Foundations
     {
         Male,
         Female,
-        Other
+        Other,
+        Male1
+
     }
 }
