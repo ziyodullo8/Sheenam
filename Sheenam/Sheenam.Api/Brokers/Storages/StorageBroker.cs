@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace  Sheenam.Api.Brokers.Storages
 {
-    public partial class StorageBroker: EFxceptionsContext
+    public partial class StorageBroker: EFxceptionsContext, IStorageBroker
     {
         private IConfiguration configuration;
 
@@ -33,13 +33,8 @@ namespace  Sheenam.Api.Brokers.Storages
         public override void Dispose()
         {
             base.Dispose();
-        }
+        }     
 
-      
     }
+
 }
-
-
-
-
-

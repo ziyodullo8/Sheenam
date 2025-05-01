@@ -33,7 +33,7 @@ namespace Sheenam.Api
                 Title = "Sheenam.Api",
                 Version = "1"
             };
-
+        
             services.AddDbContext<StorageBroker>();
             services.AddControllers();
 
