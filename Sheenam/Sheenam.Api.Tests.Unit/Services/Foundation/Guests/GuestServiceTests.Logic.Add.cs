@@ -45,19 +45,19 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundation.Guests
             //given
             Guest randomGuest = CreateRandomGuest();
             Guest inputGuest = randomGuest;
-            Guest returningGuest = inputGuest;
-            Guest expectedGuest= returningGuest;
+            Guest storageGuest = inputGuest;
+            Guest expectedGuest= storageGuest;
 
             this.storageBrokerMock.Setup(broker=>
             broker.InsertGuestAsync(inputGuest))
-                .ReturnsAsync(returningGuest);
+                .ReturnsAsync(storageGuest);
 
             //when
             Guest actualGuest =
                 await this.guestService.AddGuestAsync(inputGuest);
 
             //then
-            actualGuest.Should().BeEquivalentTo(returningGuest);
+            actualGuest.Should().BeEquivalentTo(expectedGuest);
 
             this.storageBrokerMock.Verify(broker =>
             broker.InsertGuestAsync(inputGuest),
