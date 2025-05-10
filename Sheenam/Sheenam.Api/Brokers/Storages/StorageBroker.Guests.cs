@@ -16,7 +16,7 @@ namespace Sheenam.Api.Brokers.Storages
             EntityEntry<Guest> guestEntityEntry=
                 await broker.Guests.AddAsync(guest);
 
-            await broker.SaveChangesAsync();
+            _ = await broker.SaveChangesAsync();
 
             return guestEntityEntry.Entity;
         }

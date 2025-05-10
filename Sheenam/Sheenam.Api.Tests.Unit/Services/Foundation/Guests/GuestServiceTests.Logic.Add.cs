@@ -30,13 +30,13 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundation.Guests
                 PhoneNumber = "12345",
             };
 
-            this.storageBrokerMock.Setup(broker =>
+            _ = this.storageBrokerMock.Setup(broker =>
             broker.InsertGuestAsync(rondomGuest))
                 .ReturnsAsync(rondomGuest);
             //Act
             Guest actual = await this.guestService.AddGuestAsync(rondomGuest);
             //Assert
-            actual.Should().BeEquivalentTo(rondomGuest);
+            _ = actual.Should().BeEquivalentTo(rondomGuest);
         }
 
         [Fact]
@@ -48,7 +48,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundation.Guests
             Guest storageGuest = inputGuest;
             Guest expectedGuest= storageGuest;
 
-            this.storageBrokerMock.Setup(broker=>
+            _ = this.storageBrokerMock.Setup(broker =>
             broker.InsertGuestAsync(inputGuest))
                 .ReturnsAsync(storageGuest);
 
@@ -57,7 +57,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundation.Guests
                 await this.guestService.AddGuestAsync(inputGuest);
 
             //then
-            actualGuest.Should().BeEquivalentTo(expectedGuest);
+            _ = actualGuest.Should().BeEquivalentTo(expectedGuest);
 
             this.storageBrokerMock.Verify(broker =>
             broker.InsertGuestAsync(inputGuest),

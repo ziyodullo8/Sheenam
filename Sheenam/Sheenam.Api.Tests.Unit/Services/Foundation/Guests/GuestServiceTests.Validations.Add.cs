@@ -22,7 +22,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundation.Guests
 
             //then
 
-            await Assert.ThrowsAsync<GuestValidationException>(()=>
+            _ = await Assert.ThrowsAsync<GuestValidationException>(() =>
             addGuestTask.AsTask());
         }
     }

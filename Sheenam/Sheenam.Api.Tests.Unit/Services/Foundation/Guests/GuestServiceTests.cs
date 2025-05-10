@@ -34,7 +34,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundation.Guests
         {
             var filler=new Filler<Guest>();
 
-            filler.Setup()
+            _ = filler.Setup()
                 .OnType<DateTimeOffset>().Use(date);
             return filler;
         }

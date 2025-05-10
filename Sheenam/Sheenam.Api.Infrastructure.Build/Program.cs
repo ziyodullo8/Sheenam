@@ -78,7 +78,7 @@ string directoryPath = Path.GetDirectoryName(buildScriptPath);
 
 if (!Directory.Exists(directoryPath))
 {
-    Directory.CreateDirectory(directoryPath);
+    _ = Directory.CreateDirectory(directoryPath);
 }
 
 aDotNetClient.SerializeAndWriteToFile(githubPipeline, path: buildScriptPath);

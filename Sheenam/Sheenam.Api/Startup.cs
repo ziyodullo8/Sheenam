@@ -33,12 +33,12 @@ namespace Sheenam.Api
                 Title = "Sheenam.Api",
                 Version = "1"
             };
-        
-            services.AddDbContext<StorageBroker>();
-            services.AddControllers();
-            services.AddControllers();
 
-            services.AddSwaggerGen(options =>
+            _ = services.AddDbContext<StorageBroker>();
+            _ = services.AddControllers();
+            _ = services.AddControllers();
+
+            _ = services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc(
                     name: "v1",
@@ -53,19 +53,19 @@ namespace Sheenam.Api
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sheenam.Api v1"));
+                _ = app.UseDeveloperExceptionPage();
+                _ = app.UseSwagger();
+                _ = app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sheenam.Api v1"));
             }
 
-            app.UseHttpsRedirection();
+            _ = app.UseHttpsRedirection();
 
-            app.UseRouting();
+            _ = app.UseRouting();
 
-            app.UseAuthorization();
+            _ = app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            
+            _ = app.UseEndpoints(endpoints =>
+
                 endpoints.MapControllers());
           
         }
